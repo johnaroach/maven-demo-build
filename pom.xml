@@ -71,6 +71,7 @@
 			        <username>${anypoint.user}</username>
 			        <password>Wok!87t6</password>
 			        <environment>${anypoint.environment}</environment>
+			        <workerType>Micro</workerType>
 			    </configuration>
 			    <executions>
 			        <execution>
