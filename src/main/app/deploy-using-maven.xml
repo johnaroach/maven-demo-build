@@ -7,7 +7,7 @@
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
     <flow name="deploy-using-mavenFlow">
         <poll doc:name="Poll">
-            <logger message="## Polling after code change auto build..." level="INFO" doc:name="Logger"/>
+            <logger message="## Polling...build 31" level="INFO" doc:name="Logger"/>
         </poll>
         <logger message="## Do something...this WORKS!" level="INFO" doc:name="Logger"/>
     </flow>
