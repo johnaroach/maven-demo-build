@@ -7,8 +7,14 @@
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
     <flow name="deploy-using-mavenFlow">
         <poll doc:name="Poll">
-            <logger message="## Polling...build 31" level="INFO" doc:name="Logger"/>
+            <logger message="## Polling: " level="INFO" doc:name="Logger"/>
         </poll>
-        <logger message="## Do something...this WORKS!" level="INFO" doc:name="Logger"/>
+        <enricher source="#[payload]" target="#[flowVars.msg]" doc:name="Message Enricher">
+            <flow-ref name="deploy-using-mavenSub_Flow" doc:name="deploy-using-mavenSub_Flow"/>
+        </enricher>
+        <logger message="## #[flowVars.msg]" level="INFO" doc:name="Logger"/>
     </flow>
+    <sub-flow name="deploy-using-mavenSub_Flow">
+        <set-payload value="HELLO WORLD" doc:name="Set Payload"/>
+    </sub-flow>
 </mule>
